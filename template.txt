@@ -1,0 +1,3 @@
+{name} из {city}, профессия:{job} 
+{roll_dice}
+{runic_skills}
