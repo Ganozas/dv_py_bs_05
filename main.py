@@ -9,12 +9,14 @@ from skills import skills
 from alphabet import alphabet
 
 
-fake = Faker('ru_RU')
-runic_skills = []
-end = 0
+if __name__ == '__main__':
 
 
-if __name__ == '__main__': 
+    fake = Faker('ru_RU')
+    runic_skills = []
+    end = 0 
+
+
     for skill in skills:
         runic_skill = ''
         for i in skill:
@@ -28,15 +30,15 @@ if __name__ == '__main__':
         city = fake.city()
         job = fake.job()
         roll_dice = random.randrange(3, 18)
-        runic_skills = random.sample(runic_skills, 3) 
         
         context = {
-      "name": name,
-      "city": city,
-      "job": job,
-      "roll_dice": roll_dice,
-      "runic_skills": runic_skills 
-    }
+            "name": name,
+            "city": city,
+            "job": job,
+            "roll_dice": roll_dice,
+            "runic_skills": random.sample(runic_skills, 3) 
+        }
+
         file_operations.render_template(
                         "template.svg",
                         "files/result{}.svg".format(range_files),
