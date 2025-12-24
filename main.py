@@ -14,7 +14,6 @@ if __name__ == '__main__':
 
     fake = Faker('ru_RU')
     runic_skills = []
-    end = 0 
 
 
     for skill in skills:
@@ -26,23 +25,36 @@ if __name__ == '__main__':
     os.makedirs('files', exist_ok=True)
 
     for range_files in range(1,11):
-        name = fake.name()
+        first_name = fake.first_name()
+        last_name = fake.last_name()
         city = fake.city()
         job = fake.job()
-        roll_dice = random.randrange(3, 18)
+        strength = random.randrange(3, 18)
+        agility = random.randrange(3, 18)
+        endurance = random.randrange(3, 18)
+        intelligence = random.randrange(3, 18)
+        luck = random.randrange(3, 18) 
         
         context = {
-            "name": name,
-            "city": city,
+            "first_name": first_name,
+            "last_name": last_name,
+            "town": city,
             "job": job,
-            "roll_dice": roll_dice,
-            "runic_skills": random.sample(runic_skills, 3) 
+            "strength": strength,
+            "agility": agility,
+            "endurance": endurance,
+            "intelligence": intelligence,
+            "luck": luck,
+            "runic_skill": random.sample(runic_skills, 3),
+            "skill_1": runic_skill[1],
+            "skill_2": runic_skill[2],
+            "skill_3": runic_skill[3],
         }
 
         file_operations.render_template(
                         "template.svg",
                         "files/result{}.svg".format(range_files),
                          context) 
-        end += 1
+
     
 
