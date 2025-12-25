@@ -34,7 +34,7 @@ if __name__ == '__main__':
         endurance = random.randrange(3, 18)
         intelligence = random.randrange(3, 18)
         luck = random.randrange(3, 18) 
-        
+        runic_skills = random.sample(runic_skills, 8)
         context = {
             "first_name": first_name,
             "last_name": last_name,
@@ -45,10 +45,9 @@ if __name__ == '__main__':
             "endurance": endurance,
             "intelligence": intelligence,
             "luck": luck,
-            "runic_skill": random.sample(runic_skills, 3),
-            "skill_1": runic_skill[1],
-            "skill_2": runic_skill[2],
-            "skill_3": runic_skill[3],
+            "skill_1": runic_skills[0],
+            "skill_2": runic_skills[1],
+            "skill_3": runic_skills[2],
         }
 
         file_operations.render_template(
